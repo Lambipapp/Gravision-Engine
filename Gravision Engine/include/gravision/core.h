@@ -99,6 +99,37 @@ namespace gravision {
 		real Dot(const Vec3& v) const {
 			return x * v.x + y * v.y + z * v.z;
 		}
+
+		//returns the crossproduct (normal) between the two vectors
+		Vec3 Cross(const Vec3& v) const {
+			return Vec3(
+				y * v.z - z * v.y,
+				z * v.x - x * v.z,
+				x * v.y - y * v.x
+			);
+		}
+		// overvrites %= with crossproduct
+		void operator %=(const Vec3& v) {
+			*this = Cross(v);
+		}
+		//overwrites % opperator
+		//returns the crossproduct (normal) between the two vectors
+		Vec3 operator %(const Vec3& v) const {
+			return Vec3(
+				y * v.z - z * v.y,
+				z * v.x - x * v.z,
+				x * v.y - y * v.x
+			);
+		}
+
+		//a will remain as is but will become a unit vector, b might become shifted and scaled, c is only needed for output
+		void OrthonormalBasis(Vec3 *a, Vec3 *b, Vec3 *c) {
+			a->Normalize();
+			*c = (*a) % (*b);
+			if (c->SquareMagnitude() == 0.0) return; // this means that a and b are parrarell
+			c->Normalize();
+			*b = (*c) % (*a);
+		}
 	};
 };
 
