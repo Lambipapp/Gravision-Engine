@@ -26,5 +26,8 @@
     <ClInclude Include="include\gravision\core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gravision\precision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
