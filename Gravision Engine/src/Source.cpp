@@ -4,7 +4,7 @@
 void ExesChap2();
 int main() {
 
-	ExesChap2();
+	//ExesChap2();
 
 
 

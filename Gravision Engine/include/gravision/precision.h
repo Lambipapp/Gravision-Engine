@@ -11,11 +11,14 @@ namespace gravision {
 
 	// Defines the precision of the square root operator. 
 	#define real_sqrt sqrtf
+
+	//Defines the precision of the poweropperator to match the float data type
+	#define real_pow powf
 #else
 
 	#define DOUBLE_PRECISION
 	typedef double real;
 	#define real_sqrt sqrt
-
+	#define real_pow pow
 #endif
 }
