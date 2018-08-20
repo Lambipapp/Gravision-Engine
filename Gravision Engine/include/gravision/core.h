@@ -61,6 +61,12 @@ namespace gravision {
 			z += v.z;
 		}
 
+		void AddScaledVector(const Vec3& v, real scalar) {
+			x += v.x * scalar;
+			y += v.y * scalar;
+			z += v.z * scalar;
+		}
+
 		//overwrites += of vec3-subtraction
 		void operator -=(const Vec3& v) {
 			x -= v.x;
@@ -130,6 +136,7 @@ namespace gravision {
 			c->Normalize();
 			*b = (*c) % (*a);
 		}
+		
 	};
 };
 
