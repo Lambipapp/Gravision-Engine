@@ -78,6 +78,27 @@ namespace gravision {
 		Vec3 operator -(const Vec3& v) const {
 			return Vec3(x - v.x, y - v.y, z - v.z);
 		}
+
+		// calculates and returns the component product of 2 vectors. (I had not learned about this product before this)
+		Vec3 ComponentProduct(const Vec3& v) const {
+			return Vec3(x * v.x, y * v.y, z * v.z);
+		}
+
+		//Overwrites this vector with the compontentproduct from this*v
+		void ComponentProductUpdate(const Vec3& v) {
+			x *= v.x;
+			y *= v.y;
+			z *= v.z;
+		}
+
+		//returns the dotProduct by overwriting * operator
+		real operator * (const Vec3& v) const {
+			return x * v.x + y * v.y + z * v.z;
+		}
+		//same thing as the * operator in the above overwrite
+		real Dot(const Vec3& v) const {
+			return x * v.x + y * v.y + z * v.z;
+		}
 	};
 };
 
