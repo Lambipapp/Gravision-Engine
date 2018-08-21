@@ -154,11 +154,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\gravision\gravision.h" />
+    <ClInclude Include="src\App\App.h" />
     <ClInclude Include="include\gravision\core.h" />
     <ClInclude Include="include\gravision\particle.h" />
     <ClInclude Include="include\gravision\precision.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\App\App.cpp" />
+    <ClCompile Include="src\App\main.cpp" />
     <ClCompile Include="src\core.cpp" />
     <ClCompile Include="src\particle.cpp" />
     <ClCompile Include="src\Source.cpp" />
