@@ -1,6 +1,8 @@
 #include <iostream>
 #include <gravision/core.h>
 #include <gravision/particle.h>
+#include <GL/GLFW/glfw3.h>
+
 
 void ExesChap2();
 void TestParticle();
@@ -9,7 +11,7 @@ struct Projectile {
 	gravision::Particle particle;
 };
 int main() {
-
+	
 	//ExesChap2();
 	//TestParticle();
 
