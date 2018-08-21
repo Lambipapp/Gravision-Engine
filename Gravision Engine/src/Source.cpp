@@ -1,23 +1,52 @@
 #include <iostream>
 #include <gravision/core.h>
 #include <gravision/particle.h>
-#include <GL/GLFW/glfw3.h>
-
+#include <GLEW/glew.h>
+#include <GLFW/glfw3.h>
 
 void ExesChap2();
 void TestParticle();
-
+void TestWindow();
 struct Projectile {
 	gravision::Particle particle;
+	
 };
+
 int main() {
 	
 	//ExesChap2();
 	//TestParticle();
+	TestWindow();
 
 
 	std::system("Pause");
 	return 0;
+}
+void TestWindow() {
+	GLFWwindow* window;
+	if (!glfwInit())
+		return;
+	window = glfwCreateWindow(800, 600, "Gravision", NULL, NULL);
+	if (!window) {
+		glfwTerminate();
+
+		return;
+	}
+	glfwMakeContextCurrent(window);
+	if (glewInit() != GLEW_OK) std::cout << "Error: !GLEW_OK" << std::endl;
+
+	while (!glfwWindowShouldClose(window))
+	{
+		/* Render here */
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		/* Swap front and back buffers */
+		glfwSwapBuffers(window);
+
+		/* Poll for and process events */
+		glfwPollEvents();
+	}
+	glfwTerminate();
 }
 
 void TestParticle() {
