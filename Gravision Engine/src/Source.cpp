@@ -1,16 +1,36 @@
 #include <iostream>
 #include <gravision/core.h>
+#include <gravision/particle.h>
 
 void ExesChap2();
+void TestParticle();
+
+struct Projectile {
+	gravision::Particle particle;
+};
 int main() {
 
 	//ExesChap2();
-
+	//TestParticle();
 
 
 	std::system("Pause");
 	return 0;
 }
+
+void TestParticle() {
+	Projectile *p = new Projectile();
+	p->particle.SetMass(20.0f);
+	p->particle.SetVelocity(gravision::Vec3(1.0f, -1.0f, 2.0f));
+	p->particle.SetAcceleration(gravision::Vec3(0.0f, 1.0f, -1.0f));
+	p->particle.SetDamping(1.0f);
+	p->particle.SetPosition(gravision::Vec3(1.0f, 2.0f, 3.0f));
+
+	for (int i = 0; i < 5; i++) {
+		p->particle.Intergrate(1.0f);
+	}
+}
+
 void ExesChap2() {
 	// EX2.1		Decompose the following vector [2, -2, -2].
 	gravision::Vec3 exVec0 = gravision::Vec3(2, -2, -2);
