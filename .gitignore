@@ -294,3 +294,7 @@ __pycache__/
 *.out
 *.app
 >>>>>>> c8d042c3152ff954fd8099575f9310dee63487d9
+
+#Folders containing libraries
+GLEW/
+GLFW/
