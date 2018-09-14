@@ -9,13 +9,13 @@ struct Projectile {
 
 };
 
-//int main() {
-//	
-//
-//
-//	std::system("Pause");
-//	return 0;
-//}
+int main() {
+	
+
+
+	std::system("Pause");
+	return 0;
+}
 
 
 void TestParticle() {

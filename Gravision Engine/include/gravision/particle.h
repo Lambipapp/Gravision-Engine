@@ -13,6 +13,7 @@ namespace gravision {
 
 		//linear damping - used as a energi remover. works like a simple drag 0 to 1
 		gravision::real damping;
+
 		//acuumulated forces per frame
 		gravision::Vec3 forceAcum;
 
