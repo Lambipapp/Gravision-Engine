@@ -13,6 +13,11 @@ namespace gravision {
 
 		//linear damping - used as a energi remover. works like a simple drag 0 to 1
 		gravision::real damping;
+		//acuumulated forces per frame
+		gravision::Vec3 forceAcum;
+
+		//clears the forceAcum at the end of each frame
+		void clearAcum();
 
 		//Holds the inverse mass of the particle.
 		//this way a 0 inverse object is as close one can get to an infinite mass (making it unable to accelerate)
@@ -53,5 +58,6 @@ namespace gravision {
 		gravision::real GetDamping()const;
 		void GetDamping(gravision::real *damping)const;
 
+		void addForce(const gravision::Vec3 & force);
 	};
 }

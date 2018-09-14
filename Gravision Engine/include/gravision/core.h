@@ -129,12 +129,15 @@ namespace gravision {
 		}
 
 		//a will remain as is but will become a unit vector, b might become shifted and scaled, c is only needed for output
-		void OrthonormalBasis(Vec3 *a, Vec3 *b, Vec3 *c) {
+		void orthonormalBasis(Vec3 *a, Vec3 *b, Vec3 *c) {
 			a->Normalize();
 			*c = (*a) % (*b);
 			if (c->SquareMagnitude() == 0.0) return; // this means that a and b are parrarell
 			c->Normalize();
 			*b = (*c) % (*a);
+		}
+		void clear() {
+			x = 0; y = 0; z = 0;
 		}
 		
 	};

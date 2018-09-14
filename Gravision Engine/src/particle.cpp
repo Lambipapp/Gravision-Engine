@@ -1,6 +1,16 @@
 #include <gravision/particle.h>
 #include <assert.h>
 
+void gravision::Particle::clearAcum()
+{
+	forceAcum.clear();
+}
+
+void gravision::Particle::addForce(const gravision::Vec3 & force)
+{
+	forceAcum += force;
+}
+
 void gravision::Particle::Intergrate(gravision::real dt) {
 	//leave if mass is infinite
 	//might add error handling later
@@ -14,6 +24,7 @@ void gravision::Particle::Intergrate(gravision::real dt) {
 	//for now the acceleration is not effected by anything else than the set acceleration.
 	//we will ad a forceAccumulator later
 	gravision::Vec3 frameAcc = acceleration;
+	frameAcc.AddScaledVector(forceAcum, dt);
 
 	//updetes linear velocity form the frameAcc vector
 	velocity.AddScaledVector(frameAcc, dt);
@@ -21,7 +32,10 @@ void gravision::Particle::Intergrate(gravision::real dt) {
 	//impose drag
 	velocity *= real_pow(damping, dt);
 
-	//clearAccumulator(); //add later when accumulator is implemented
+	
+
+
+	clearAcum();
 }
 
 void gravision::Particle::SetMass(const gravision::real mass)
